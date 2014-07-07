@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://mycompany.com/hr/schemas" xmlns:hr="http://mycompany.com/hr/schemas" elementFormDefault="qualified">
+
+
+    <element name="HolidayRequest">
+    	<complexType>
+    		<sequence>
+    			<element ref="hr:HolidayType"></element>
+    			<element ref="hr:EmployeeType"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+    
+    <element name="HolidayType">
+    	<complexType>
+    		<sequence>
+    			<element name="StartDate" type="NMTOKEN"></element>
+    			<element name="EndDate" type="NMTOKEN"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+    
+    <element name="EmployeeType">
+    	<complexType>
+    		<sequence>
+    			<element name="Number" type="integer"></element>
+    			<element name="FirstName" type="NCName"></element>
+    			<element name="LastName" type="NCName"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+
+</schema>

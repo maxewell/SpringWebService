@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/NewXMLSchema1" xmlns:tns="http://www.example.org/NewXMLSchema1" elementFormDefault="qualified">
+    <element name="HolidayRequest">
+    	<complexType>
+    		<sequence>
+    			<element ref="tns:Holiday"></element>
+    			<element ref="tns:Employee"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+    <element name="Holiday">
+    	<complexType>
+    		<sequence>
+    			<element ref="tns:StartDate"></element>
+    			<element ref="tns:EndDate"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+    <element name="StartDate" type="NMTOKEN"></element>
+    <element name="EndDate" type="NMTOKEN"></element>
+    <element name="Employee">
+        <complexType>
+            <sequence>
+                <element ref="tns:Number"></element>
+                <element ref="tns:FirstName"></element>
+                <element ref="tns:LastName"></element>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="Number" type="integer"></element>
+    <element name="FirstName" type="NCName"></element>
+    <element name="LastName" type="NCName"></element>
+
+
+</schema>
