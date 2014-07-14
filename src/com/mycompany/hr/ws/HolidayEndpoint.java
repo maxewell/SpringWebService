@@ -45,7 +45,8 @@ public class HolidayEndpoint {
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "HolidayRequest")                                              
-    public void handleHolidayRequest(@RequestPayload Element holidayRequest) throws Exception {                        
+    public void handleHolidayRequest(@RequestPayload Element holidayRequest) throws Exception {  
+    	
         Date startDate = parseDate(startDateExpression, holidayRequest);
         Date endDate = parseDate(endDateExpression, holidayRequest);
         String name = firstNameExpression.evaluateFirst(holidayRequest).getText() + " " + lastNameExpression.evaluateFirst(holidayRequest).getText();

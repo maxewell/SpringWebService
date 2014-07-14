@@ -9,7 +9,7 @@
 <!-- ***************************** Context ***************************** -->
     <context-param>
         <param-name>webAppRootKey</param-name>
-        <param-value>myspring2.root</param-value>
+        <param-value>SpringWebService.root</param-value>
     </context-param>
     
     <!-- Spring context
@@ -31,7 +31,7 @@
         <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
     </listener>
 
-    <!-- take especial notice of the name of this servlet -->
+    <!-- take especial notice of the name of this servlet 
     <servlet>
         <servlet-name>springDispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -45,7 +45,7 @@
         <servlet-name>springDispatcher</servlet-name>
         <url-pattern>*.so</url-pattern>
     </servlet-mapping>
-     
+    --> 
     <servlet>
         <servlet-name>spring-ws</servlet-name>
         <servlet-class>org.springframework.ws.transport.http.MessageDispatcherServlet</servlet-class>

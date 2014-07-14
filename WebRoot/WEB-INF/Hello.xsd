@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.example.org/Hello" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/Hello">
+
+    <xsd:complexType name="HelloType">
+    	<xsd:sequence>
+    		<xsd:element name="Msg" type="xsd:string"></xsd:element>
+    		<xsd:element name="Date" type="xsd:date"></xsd:element>
+    		<xsd:element name="From" type="xsd:string"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+
+    <xsd:element name="HelloRequest">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element name="Hello" type="tns:HelloType"></xsd:element>
+    		</xsd:sequence>
+    	</xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="HelloResponse">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element name="echo" type="xsd:string"></xsd:element>
+    		</xsd:sequence>
+    	</xsd:complexType>
+    </xsd:element>
+</xsd:schema>
