@@ -8,17 +8,13 @@
   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
      
     <context:component-scan base-package="come.hello, com.mycompany.hr"/>
-    
-    <!-- 
-    <context:component-scan base-package="come.hello"/>
-     -->
-     
+      
     <sws:annotation-driven/>
-
+    
     <!--  -->
     <sws:dynamic-wsdl id="holiday"                                                                                         
         portTypeName="HumanResource"                                                                                       
-        locationUri="/ws/"                                                                                     
+        locationUri="/ws/holiday/"                                                                                     
         targetNamespace="http://mycompany.com/hr/definitions">                                                             
         <sws:xsd location="/WEB-INF/hr.xsd"/>                                                                                
     </sws:dynamic-wsdl>
@@ -26,7 +22,7 @@
     
     <sws:dynamic-wsdl id="hello"                                                                                         
         portTypeName="Welcome"                                                                                       
-        locationUri="/ws/"                                                                                     
+        locationUri="/ws/hello/"                                                                                     
         targetNamespace="http://www.example.org/echo/definitions">                                                             
         <sws:xsd location="/WEB-INF/Hello.xsd"/>                                                                                
     </sws:dynamic-wsdl>

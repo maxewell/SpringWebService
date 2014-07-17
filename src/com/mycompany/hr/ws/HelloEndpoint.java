@@ -4,6 +4,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.Namespace;
@@ -15,6 +17,9 @@ import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
+import org.springframework.ws.transport.context.TransportContext;
+import org.springframework.ws.transport.context.TransportContextHolder;
+import org.springframework.ws.transport.http.HttpServletConnection;
 
 import com.mycompany.hr.service.HelloService;
 
@@ -43,7 +48,7 @@ public class HelloEndpoint {
     
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "HelloRequest")         
     //@ResponsePayload
-    public void handleHolidayRequest(@RequestPayload Element helloRequest) throws Exception {  
+    public void handleHelloRequest(@RequestPayload Element helloRequest) throws Exception {  
     	String msg = msgExpression.evaluateFirst(helloRequest).getText();
         Date date = parseDate(dateExpression, helloRequest);
         String from = fromExpression.evaluateFirst(helloRequest).getText();
@@ -52,6 +57,11 @@ public class HelloEndpoint {
         
         //return helloService.sayHello(data);
         
+        TransportContext context = TransportContextHolder.getTransportContext();
+        HttpServletConnection connection = (HttpServletConnection )context.getConnection();
+        HttpServletRequest request = connection.getHttpServletRequest();
+        String requrl = request.getRequestURI();
+        System.out.println("WebService URL:" + requrl);
     }
 
     private Date parseDate(XPathExpression<Element> expression, Element element) throws ParseException {
